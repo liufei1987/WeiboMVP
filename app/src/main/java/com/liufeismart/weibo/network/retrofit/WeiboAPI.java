@@ -1,4 +1,4 @@
-package com.liufeismart.weibo.network;
+package com.liufeismart.weibo.network.retrofit;
 
 import com.liufeismart.weibo.bean.WeiboBeanInWeibo;
 
