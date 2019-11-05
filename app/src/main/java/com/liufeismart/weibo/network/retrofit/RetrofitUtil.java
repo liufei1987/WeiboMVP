@@ -1,14 +1,13 @@
 package com.liufeismart.weibo.network.retrofit;
 
-import com.liufeismart.weibo.bean.WeiboBeanInWeibo;
-import com.liufeismart.weibo.network.NetworkAPI;
-import com.liufeismart.weibo.network.NetworkUtil;
+import com.liufeismart.weibo.bean.UserInfoBean;
+import com.liufeismart.weibo.login.util.LoginUtil;
+import com.liufeismart.weibo.network.base.NetworkAPI;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
-import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -16,47 +15,103 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RetrofitUtil implements NetworkAPI {
     private static RetrofitUtil instanace;
     Retrofit retrofit;
-    WeiboAPI weiboAPIRequest;
+    RetrofitAPI weiboAPIRequest;
     private RetrofitUtil() {
         retrofit = new Retrofit.Builder()
-                .baseUrl("https://api.weibo.com/2/")
+                .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
+//                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .build();
-        weiboAPIRequest = retrofit.create(WeiboAPI.class);
+        weiboAPIRequest = retrofit.create(RetrofitAPI.class);
     }
 
     public static RetrofitUtil getInstanace() {
-        if(instanace == null) {
+        if( instanace == null) {
             instanace = new RetrofitUtil();
         }
         return instanace;
     }
 
-    public void getAttention(final NetworkAPI.GetAttentionCallback callback) {
-//        String accesstoken = "0";
-//        Call<List<WeiboBeanInWeibo>> call = weiboAPIRequest.getAttention(accesstoken);
-//        call.enqueue(new Callback<List<WeiboBeanInWeibo>>() {
-//            @Override
-//            public void onResponse(Call<List<WeiboBeanInWeibo>> call, Response<List<WeiboBeanInWeibo>> response) {
-//                List<WeiboBeanInWeibo> weiboList = response.body();
-//                callback.onSuccess(weiboList);
-//            }
-//
-//            @Override
-//            public void onFailure(Call<List<WeiboBeanInWeibo>> call, Throwable t) {
-//
-//            }
-//        });
-        List<WeiboBeanInWeibo> weiboList = new ArrayList<>();
-        WeiboBeanInWeibo bean;
-        for(int i=0; i<10; i++) {
-            bean = new WeiboBeanInWeibo();
-            bean.setText("Hello Weibo"+i);
-            weiboList.add(bean);
-        }
-        callback.onSuccess(weiboList);
+
+    @Override
+    public <T> void getAttention(final NetworkAPI.Callback<T> callback, final Class<T> TClass) {
+        String accesstoken = "0";
+        Call<T> call = weiboAPIRequest.getAttention(accesstoken);
+        call.enqueue(new retrofit2.Callback<T>() {
+            @Override
+            public void onResponse(Call<T> call, Response<T> response) {
+                callback.onSuccess(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<T> call, Throwable t) {
+                callback.onFailure(t.getMessage());
+            }
+        });
+
     }
 
+    @Override
+    public void getUserInfo(final NetworkAPI.Callback<UserInfoBean> callback) {
+        Call<UserInfoBean> call = weiboAPIRequest.getUserInfo(
+                LoginUtil.getInstance().mAccessToken.getToken(),
+                Long.parseLong(LoginUtil.getInstance().mAccessToken.getUid()));
+        call.enqueue(new retrofit2.Callback<UserInfoBean>() {
+            @Override
+            public void onResponse(Call<UserInfoBean> call, Response<UserInfoBean> response) {
+                if(response.body()!=null) {
+                    callback.onSuccess(response.body());
+                    return;
+                }
+                if(response.errorBody()!=null) {
+                    callback.onFailure(response.errorBody().toString());
 
+                }
+            }
 
+            @Override
+            public void onFailure(Call<UserInfoBean> call, Throwable t) {
+                callback.onFailure(t.getMessage());
+            }
+        });
+    }
+
+    @Override
+    public void getUserCountInfo(final Callback<List<UserInfoBean>> callback, String userids) {
+        Call<List<UserInfoBean>> call = weiboAPIRequest.getUserCountInfo(
+                LoginUtil.getInstance().mAccessToken.getToken(),
+                userids);
+        call.enqueue(new retrofit2.Callback<List<UserInfoBean>>() {
+            @Override
+            public void onResponse(Call<List<UserInfoBean>> call, Response<List<UserInfoBean>> response) {
+                if(response.body()!=null) {
+                    callback.onSuccess(response.body());
+                    return;
+                }
+                if(response.errorBody()!=null) {
+                    callback.onFailure(response.errorBody().toString());
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<UserInfoBean>> call, Throwable t) {
+                callback.onFailure(t.getMessage());
+            }
+        });
+    }
+
+    @Override
+    public void getUserOftenVisit(final Callback<List<UserInfoBean>> callback, long userid) {
+        List<UserInfoBean> results = new ArrayList<>();
+        for(int i=0; i<5; i++) {
+            UserInfoBean bean = new UserInfoBean();
+            bean.setId(1404376560);
+            bean.setName("zaku");
+            bean.setProfile_image_url("http://tp1.sinaimg.cn/1404376560/50/0/1");
+            results.add(bean);
+        }
+
+        callback.onSuccess(results);
+    }
 }

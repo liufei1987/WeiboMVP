@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--titlebar-->
+    <dimen name="titlebar_height">60dp</dimen>
+    <dimen name="titlebar_title_textsize">20dp</dimen>
+    <dimen name="titlebar_btn_size">35dp</dimen>
+
+
+    <!-- fragmentMe-->
+    <dimen name="portrait_size_fragment_me">80dp</dimen>
+    <dimen name="textsize_username_fragment_me">20dp</dimen>
+    <dimen name="margin_top_username_fragment_me">20dp</dimen>
+    <dimen name="view_user_height_fragment_me">120dp</dimen>
+    <dimen name="margin_left_username_fragment_me">10dp</dimen>
+    <dimen name="margin_top_user_info_fragment_me">10dp</dimen>
+    <dimen name="textsize_user_info_fragment_me">15dp</dimen>
+    <dimen name="textsize_weibo_info_fragment_me">13dp</dimen>
+    <dimen name="margintop_view_fragment_me">10dp</dimen>
+    <dimen name="textsize_service_name_fragment_me">13dp</dimen>
+    <dimen name="size_service_img_fragment_me">50dp</dimen>
+    <dimen name="margintop_service_name_fragment_me">5dp</dimen>
+    <dimen name="padding_service_fragment_me">10dp</dimen>
+    <dimen name="textsize_often_visit_fragment_me">13dp</dimen>
+    <dimen name="textsize_often_visit_homepage_fragment_me">15dp</dimen>
+    <dimen name="margintop_often_visite_homepage_fragment_me">3dp</dimen>
+    <dimen name="titlebar_padding">20dp</dimen>
+    <dimen name="padding_view_fragment_me">20dp</dimen>
+    <dimen name="size_user_img_often_visit_fragment_me">60dp</dimen>
+    <dimen name="padding_user_img_often_visit_fragment_me">2dp</dimen>
+    <dimen name="textsize_user_name_often_visit_fragment_me">@dimen/textsize_weibo_info_fragment_me</dimen>
+</resources>

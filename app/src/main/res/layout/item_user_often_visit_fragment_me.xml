@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="@dimen/padding_user_img_often_visit_fragment_me">
+    <ImageView
+        android:id="@+id/iv_user_img"
+        android:layout_width="@dimen/size_user_img_often_visit_fragment_me"
+        android:layout_height="@dimen/size_user_img_often_visit_fragment_me"
+        android:src="@drawable/btn_settings"/>
+    <TextView
+        android:id="@+id/tv_user_name"
+        android:layout_width="@dimen/size_user_img_often_visit_fragment_me"
+        android:layout_height="wrap_content"
+        android:text="User Name"
+        android:textColor="@color/tintcolor"
+        android:textSize="@dimen/textsize_user_name_often_visit_fragment_me"
+        android:layout_marginTop="@dimen/margintop_service_name_fragment_me"
+        android:gravity="center"/>
+</LinearLayout>

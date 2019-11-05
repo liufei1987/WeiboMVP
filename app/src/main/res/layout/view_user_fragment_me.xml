@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/view_user_height_fragment_me"
+    style="@style/view_fragment_me_style">
+    <ImageView
+        android:id="@+id/iv_portrait"
+        android:layout_width="@dimen/portrait_size_fragment_me"
+        android:layout_height="@dimen/portrait_size_fragment_me"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/btn_settings"/>
+    <TextView
+        android:id="@+id/tv_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="User Name"
+        android:textColor="@color/tintcolor"
+        android:textSize="@dimen/textsize_username_fragment_me"
+        android:layout_marginTop="@dimen/margin_top_username_fragment_me"
+        android:layout_marginLeft="@dimen/margin_left_username_fragment_me"
+        android:layout_toRightOf="@+id/iv_portrait" />
+    <TextView
+        android:id="@+id/tv_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="User Information"
+        android:textColor="@color/hintcolor"
+        android:textSize="@dimen/textsize_user_info_fragment_me"
+        android:layout_marginLeft="@dimen/margin_left_username_fragment_me"
+        android:layout_marginTop="@dimen/margin_top_user_info_fragment_me"
+        android:layout_toRightOf="@+id/iv_portrait"
+        android:layout_below="@+id/tv_username" />
+</RelativeLayout>

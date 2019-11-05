@@ -3,4 +3,15 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    <color name="tintcolor">#000000</color>
+    <color name="hintcolor">#ABABAB</color>
+
+    <color name="titlebar_text">#000000</color>
+
+    <color name="titlebar_bg">#F9F9F9</color>
+    <color name="divider_color">#EAEAEA</color>
+
+    <color name="bg_view_fragment_me">#FFFFFF</color>
+    <color name="tab_bg">@color/titlebar_bg</color>
 </resources>

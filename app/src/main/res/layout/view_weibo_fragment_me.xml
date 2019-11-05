@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="59dp"
+    android:orientation="horizontal"
+    style="@style/view_fragment_me_style"
+    android:layout_marginTop="0dp"
+    android:padding="0dp">
+<!--微博个数-->
+<LinearLayout
+    style="@style/weibo_info_item_style_fragment_me">
+    <TextView
+        android:id="@+id/tv_weibo_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100"
+        android:textColor="@color/tintcolor"
+        android:textSize="@dimen/textsize_weibo_info_fragment_me" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/weibo"
+        android:textColor="@color/hintcolor"
+        android:textSize="@dimen/textsize_weibo_info_fragment_me"/>
+</LinearLayout>
+<!--关注的微博的个数-->
+<LinearLayout
+    style="@style/weibo_info_item_style_fragment_me">
+    <TextView
+    android:id="@+id/tv_follow_count"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="100"
+    android:textColor="@color/tintcolor"
+    android:textSize="@dimen/textsize_weibo_info_fragment_me" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/follow"
+        android:textColor="@color/hintcolor"
+        android:textSize="@dimen/textsize_weibo_info_fragment_me"/>
+
+</LinearLayout>
+<!--关注的人的个数-->
+<LinearLayout
+    style="@style/weibo_info_item_style_fragment_me">
+    <TextView
+        android:id="@+id/tv_follower_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100"
+        android:textColor="@color/tintcolor"
+        android:textSize="@dimen/textsize_weibo_info_fragment_me" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/follower"
+        android:textColor="@color/hintcolor"
+        android:textSize="@dimen/textsize_weibo_info_fragment_me"/>
+</LinearLayout>
+</LinearLayout>

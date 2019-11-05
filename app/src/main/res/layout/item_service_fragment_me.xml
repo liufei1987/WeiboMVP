@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="@dimen/padding_service_fragment_me">
+    <ImageView
+        android:id="@+id/iv_service_img"
+        android:layout_width="@dimen/size_service_img_fragment_me"
+        android:layout_height="@dimen/size_service_img_fragment_me"
+        android:src="@drawable/btn_settings"/>
+    <TextView
+        android:id="@+id/tv_service_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Service Name"
+        android:textColor="@color/tintcolor"
+        android:textSize="@dimen/textsize_service_name_fragment_me"
+        android:layout_marginTop="@dimen/margintop_service_name_fragment_me"/>
+</LinearLayout>

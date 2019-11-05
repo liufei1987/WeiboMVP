@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <!--TitleBar-->
+    <RelativeLayout
+        style="@style/titlebar_style">
+        <ImageView
+            android:id="@+id/iv_find_user"
+            style="@style/titlebar_btn_style"
+            android:src="@drawable/btn_find_user"
+            android:layout_alignParentLeft="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tab_me"
+            style="@style/titlebar_title_style" />
+
+        <ImageView
+            android:id="@+id/iv_settings"
+            style="@style/titlebar_btn_style"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/btn_settings"/>
+        <ImageView
+            android:id="@+id/iv_scan"
+            style="@style/titlebar_btn_style"
+            android:src="@drawable/btn_scan"
+            android:layout_toLeftOf="@+id/iv_settings"/>
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/divider_color"
+            android:orientation="vertical">
+            <include layout="@layout/view_user_fragment_me"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/divider_color"
+                android:orientation="vertical"/>
+            <include layout="@layout/view_weibo_fragment_me"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rlv_service"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/view_fragment_me_style"/>
+
+            <include layout="@layout/view_often_visit_fragment_me"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="10dp"
+                android:background="#FFFFFF">
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="10dp"
+                android:background="#FFFFFF">
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

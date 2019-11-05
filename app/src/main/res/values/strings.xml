@@ -1,3 +1,22 @@
 <resources>
-    <string name="app_name">WeiboMVC</string>
+    <string name="app_name">WeiboMVP</string>
+    <string name="weibo">微博</string>
+    <string name="follow">关注</string>
+    <string name="follower">粉丝</string>
+    <string name="often_visit_homepage">我最经常访问的主页</string>
+    <string name="often_visit">经常访问</string>
+    <string name="no_user_desc">暂无介绍</string>
+    <string name="albums">我的相册</string>
+    <string name="my_story">我的故事</string>
+    <string name="likes">我的赞</string>
+    <string name="fans_service">粉丝服务</string>
+    <string name="weibo_wallet">微博钱包</string>
+    <string name="weibo_store">微博优选</string>
+    <string name="fanstop">粉丝头条</string>
+    <string name="help">帮助</string>
+    <string name="tab_home">首页</string>
+    <string name="tab_video">视频</string>
+    <string name="tab_search">搜索</string>
+    <string name="tab_message">消息</string>
+    <string name="tab_me">我</string>
 </resources>
