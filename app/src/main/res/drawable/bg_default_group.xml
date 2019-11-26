@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_selected="true"
+        android:drawable="@color/hintbgcolor">
+        <shape>
+            <corners
+                android:radius="@dimen/cornor_default_group"/>
+
+        </shape>
+    </item>
+    <item android:state_selected="false"
+        android:drawable="@color/titlebar_bg">
+        <shape>
+            <corners
+                android:radius="@dimen/cornor_default_group"/>
+        </shape>
+    </item>
+</selector>

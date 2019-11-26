@@ -1,5 +1,6 @@
 package com.liufeismart.weibo.network;
 
+import com.liufeismart.weibo.bean.HomeTimeLineNetBean;
 import com.liufeismart.weibo.bean.UserInfoBean;
 import com.liufeismart.weibo.network.base.NetworkAPI;
 import com.liufeismart.weibo.network.retrofit.RetrofitUtil;
@@ -41,6 +42,11 @@ public class NetworkUtil implements NetworkAPI{
     @Override
     public void getUserOftenVisit(final Callback<List<UserInfoBean>> callback, long userid) {
         mNetwork.getUserOftenVisit(callback, userid);
+    }
+
+    @Override
+    public void homeTimeLine(Callback<HomeTimeLineNetBean> callback) {
+        mNetwork.homeTimeLine(callback);
     }
 
 }

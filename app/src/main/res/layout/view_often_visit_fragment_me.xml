@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:text="@string/often_visit_homepage"
         android:textSize="@dimen/textsize_often_visit_homepage_fragment_me"
-        android:textColor="@color/tintcolor"
+        android:textColor="@color/textcolor"
         android:layout_marginTop="@dimen/margintop_often_visite_homepage_fragment_me"/>
 </LinearLayout>
 <androidx.recyclerview.widget.RecyclerView

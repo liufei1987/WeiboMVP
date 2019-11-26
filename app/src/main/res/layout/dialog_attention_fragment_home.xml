@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/rl_dialog_content"
+    android:background="@color/translucent_dark">
+<RelativeLayout
+    android:id="@+id/ll_dialog_attention"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentTop="true"
+    android:padding="@dimen/padding_dialog_attention_fragment_me"
+    android:background="#ffffff">
+    <!-- 默认分组 -->
+    <TextView
+        android:id="@+id/tv_default_group"
+        android:text="@string/default_group"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        style="@style/hinttext_dialog_attention_fragment_me"
+        android:layout_marginTop="@dimen/margintop_tv_default_group"
+        android:layout_marginBottom="@dimen/marginbottom_tv_default_group"/>
+    <TextView
+        android:id="@+id/tv_edit"
+        android:text="@string/edit"
+        android:textColor="@color/tintcolor"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        style="@style/hinttext_dialog_attention_fragment_me"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_default_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_default_group"
+        android:layout_alignLeft="@+id/tv_default_group"
+        />
+    <!-- 我的分组 -->
+    <TextView
+        android:id="@+id/tv_my_group"
+        android:text="@string/my_group"
+        style="@style/hinttext_dialog_attention_fragment_me"
+        android:layout_below="@+id/rv_default_group"
+        android:layout_alignLeft="@+id/rv_default_group"
+        android:layout_marginTop="@dimen/margintop_tv_default_group"
+        android:layout_marginBottom="@dimen/marginbottom_tv_default_group"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_my_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_my_group"
+        android:layout_alignLeft="@+id/tv_my_group"/>
+</RelativeLayout>
+</RelativeLayout>

@@ -15,7 +15,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="User Name"
-        android:textColor="@color/tintcolor"
+        android:textColor="@color/textcolor"
         android:textSize="@dimen/textsize_username_fragment_me"
         android:layout_marginTop="@dimen/margin_top_username_fragment_me"
         android:layout_marginLeft="@dimen/margin_left_username_fragment_me"

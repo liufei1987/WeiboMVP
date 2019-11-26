@@ -4,7 +4,9 @@
     <dimen name="titlebar_height">60dp</dimen>
     <dimen name="titlebar_title_textsize">20dp</dimen>
     <dimen name="titlebar_btn_size">35dp</dimen>
+    <dimen name="titlebar_padding">20dp</dimen>
 
+    <dimen name="line_height">0.5dp</dimen>
 
     <!-- fragmentMe-->
     <dimen name="portrait_size_fragment_me">80dp</dimen>
@@ -23,9 +25,40 @@
     <dimen name="textsize_often_visit_fragment_me">13dp</dimen>
     <dimen name="textsize_often_visit_homepage_fragment_me">15dp</dimen>
     <dimen name="margintop_often_visite_homepage_fragment_me">3dp</dimen>
-    <dimen name="titlebar_padding">20dp</dimen>
     <dimen name="padding_view_fragment_me">20dp</dimen>
     <dimen name="size_user_img_often_visit_fragment_me">60dp</dimen>
     <dimen name="padding_user_img_often_visit_fragment_me">2dp</dimen>
     <dimen name="textsize_user_name_often_visit_fragment_me">@dimen/textsize_weibo_info_fragment_me</dimen>
+
+    <!-- HomeFragment -->
+    <dimen name="width_tab_fragment_home">150dp</dimen>
+    <dimen name="width_line_tab_fragment_home">40dp</dimen>
+    <dimen name="height_line_tab_fragment_home">3dp</dimen>
+    <dimen name="marginbottom__line_tab_fragment_home">2dp</dimen>
+
+
+    <!-- attention fragment -->
+    <dimen name="size_portrait_item_attention">60dp</dimen>
+    <dimen name="textsize_name_item_attention">20dp</dimen>
+    <dimen name="textsize_createtime_item_attention">15dp</dimen>
+    <dimen name="size_down_item_attention">20dp</dimen>
+    <dimen name="height_weibo_info_item_attention">40dp</dimen>
+    <dimen name="textsize_weibo_info_item_attention">13dp</dimen>
+    <dimen name="padding_item_attention">10dp</dimen>
+    <dimen name="textsize_dialog_attention_fragment_me"></dimen>
+    <dimen name="padding_dialog_attention_fragment_me">@dimen/padding_item_attention</dimen>
+    <dimen name="cornor_default_group">5dp</dimen>
+    <dimen name="padding_default_group">7dp</dimen>
+    <dimen name="itemdecoration_default_group">10dp</dimen>
+    <dimen name="margintop_tv_default_group">3dp</dimen>
+    <dimen name="marginbottom_tv_default_group">8dp</dimen>
+    <dimen name="textsize_title_add_group">15dp</dimen>
+    <dimen name="textsize_edit_add_group">12dp</dimen>
+    <dimen name="width_dialog_add_group">250dp</dimen>
+    <dimen name="height_dialog_add_group">160dp</dimen>
+    <dimen name="cornor_dialog_add_group">20dp</dimen>
+    <dimen name="padding_dialog_add_group">10dp</dimen>
+    <dimen name="size_delete_item_my_group">20dp</dimen>
+    <dimen name="textsize_tab_fragment_home">20dp</dimen>
+
 </resources>

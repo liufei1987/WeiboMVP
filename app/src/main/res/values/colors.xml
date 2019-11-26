@@ -4,8 +4,12 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
 
-    <color name="tintcolor">#000000</color>
-    <color name="hintcolor">#ABABAB</color>
+    <color name="red">#F30000</color>
+
+    <color name="tintcolor">#f14c00</color>
+    <color name="textcolor">#000000</color>
+    <color name="hintcolor">#656565</color>
+    <color name="hintbgcolor">#EAEAEA</color>
 
     <color name="titlebar_text">#000000</color>
 
@@ -14,4 +18,14 @@
 
     <color name="bg_view_fragment_me">#FFFFFF</color>
     <color name="tab_bg">@color/titlebar_bg</color>
+    <color name="translucent_dark">#20000000</color>
+    <color name="white">#ffffff</color>
+
+    <!-- -->
+    <color name="bgcolor_attention_item">@color/white</color>
+    <color name="bg_dialog">@color/white</color>
+    <color name="textcolor_add_group_no_content">#FF212A</color>
+    <color name="textcolor_defalut_group_unselected">#A3A3A3</color>
+
+
 </resources>

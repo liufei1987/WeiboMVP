@@ -1,8 +1,13 @@
 package com.liufeismart.weibo.network.base;
 
+import com.liufeismart.weibo.bean.HomeTimeLineNetBean;
 import com.liufeismart.weibo.bean.UserInfoBean;
 
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.http.GET;
+import retrofit2.http.Query;
 
 public interface NetworkAPI {
     public static String BASE_URL = "https://api.weibo.com/2/";
@@ -27,6 +32,13 @@ public interface NetworkAPI {
      * @param userid
      */
     void getUserOftenVisit(final Callback<List<UserInfoBean>> callback, long userid);
+
+
+    /**
+     *  获取当前登录用户及其所关注（授权）用户的最新微博
+     */
+    @GET("statuses/home_timeline.json")
+    void  homeTimeLine(final Callback<HomeTimeLineNetBean> callback);
 
 
     public interface Callback<T> {

@@ -15,7 +15,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="100"
-        android:textColor="@color/tintcolor"
+        android:textColor="@color/textcolor"
         android:textSize="@dimen/textsize_weibo_info_fragment_me" />
     <TextView
         android:layout_width="wrap_content"
@@ -32,7 +32,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:text="100"
-    android:textColor="@color/tintcolor"
+    android:textColor="@color/textcolor"
     android:textSize="@dimen/textsize_weibo_info_fragment_me" />
     <TextView
         android:layout_width="wrap_content"
@@ -50,7 +50,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="100"
-        android:textColor="@color/tintcolor"
+        android:textColor="@color/textcolor"
         android:textSize="@dimen/textsize_weibo_info_fragment_me" />
     <TextView
         android:layout_width="wrap_content"

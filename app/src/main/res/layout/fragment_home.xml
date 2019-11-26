@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        style="@style/titlebar_style">
+        <ImageView
+            android:id="@+id/iv_cameara"
+            style="@style/titlebar_btn_style"
+            android:src="@drawable/icon_camera"
+            android:layout_alignParentLeft="true"/>
+
+        <RelativeLayout
+            android:layout_width="@dimen/width_tab_fragment_home"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true">
+            <LinearLayout
+                android:id="@+id/ll_line_tab"
+                android:layout_width="@dimen/width_line_tab_fragment_home"
+                android:layout_height="@dimen/height_line_tab_fragment_home"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/line_tab_fragment_home"
+                android:layout_marginBottom="@dimen/marginbottom__line_tab_fragment_home"
+                android:layout_marginTop="@dimen/marginbottom__line_tab_fragment_home"
+                />
+            <!--关注-->
+            <TextView
+                android:id="@+id/tv_tab_attention"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/attention"
+                android:textSize="@dimen/textsize_tab_fragment_home"
+                android:layout_alignParentLeft="true"
+                android:layout_above="@+id/ll_line_tab"/>
+            <TextView
+                android:id="@+id/tv_tab_hot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/hot"
+                android:textColor="#000000"
+                android:textSize="@dimen/textsize_tab_fragment_home"
+                android:layout_alignParentRight="true"
+                android:layout_above="@+id/ll_line_tab"/>
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/iv_add"
+            style="@style/titlebar_btn_style"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/icon_add"/>
+        <ImageView
+            android:id="@+id/iv_red_packet"
+            style="@style/titlebar_btn_style"
+            android:src="@drawable/icon_red_packet"
+            android:layout_toLeftOf="@+id/iv_add"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/rl_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:id="@+id/rl_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+        <RelativeLayout
+            android:id="@+id/rl_dialog"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+</LinearLayout>

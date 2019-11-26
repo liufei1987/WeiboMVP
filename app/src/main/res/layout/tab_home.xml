@@ -13,5 +13,5 @@
         android:layout_height="wrap_content"
         android:text="@string/tab_home"
         android:textSize="8dp"
-        android:textColor="@color/tintcolor"/>
+        android:textColor="@color/textcolor"/>
 </LinearLayout>

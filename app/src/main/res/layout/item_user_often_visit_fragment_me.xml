@@ -16,7 +16,7 @@
         android:layout_width="@dimen/size_user_img_often_visit_fragment_me"
         android:layout_height="wrap_content"
         android:text="User Name"
-        android:textColor="@color/tintcolor"
+        android:textColor="@color/textcolor"
         android:textSize="@dimen/textsize_user_name_often_visit_fragment_me"
         android:layout_marginTop="@dimen/margintop_service_name_fragment_me"
         android:gravity="center"/>

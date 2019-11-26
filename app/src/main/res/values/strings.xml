@@ -19,4 +19,23 @@
     <string name="tab_search">搜索</string>
     <string name="tab_message">消息</string>
     <string name="tab_me">我</string>
+    <string name="attention">关注</string>
+    <string name="hot">热门</string>
+    <string name="transpond">转发 %d</string>
+    <string name="comment">评论 %d</string>
+    <string name="like">赞 %d</string>
+    <string name="seconds_before">%d秒前</string>
+    <string name="minutes_before">%d分钟前</string>
+    <string name="hours_before">%d小时前</string>
+    <string name="default_group">默认分组</string>
+    <string name="my_group">我的分组</string>
+    <string name="edit">编辑</string>
+    <string name="finish">完成</string>
+    <string name="add_group">+新建分组</string>
+    <string name="title_add_group">新建分组</string>
+    <string name="hint_edit_add_group">1-16个字符</string>
+    <string name="cancel">取消</string>
+    <string name="sure">确定</string>
+    <string name="add_group_no_content">分组名称不能为空</string>
+    <string name="group_name_exists">此分组名已存在(20608)</string>
 </resources>

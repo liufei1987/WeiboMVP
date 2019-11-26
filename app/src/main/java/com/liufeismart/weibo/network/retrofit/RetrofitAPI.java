@@ -1,5 +1,6 @@
 package com.liufeismart.weibo.network.retrofit;
 
+import com.liufeismart.weibo.bean.HomeTimeLineNetBean;
 import com.liufeismart.weibo.bean.UserInfoBean;
 
 import java.util.List;
@@ -24,6 +25,12 @@ public interface RetrofitAPI {
 
     @GET("users/counts.json")
     Call<List<UserInfoBean>> getUserCountInfo(@Query("access_token") String accesstoken, @Query("uids") String uids);
+
+    /**
+     *  获取当前登录用户及其所关注（授权）用户的最新微博
+     */
+    @GET("statuses/home_timeline.json")
+    Call<HomeTimeLineNetBean> homeTimeLine(@Query("access_token")String accesstoken);
 }
 
 

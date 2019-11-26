@@ -1,5 +1,6 @@
 package com.liufeismart.weibo.network.retrofit;
 
+import com.liufeismart.weibo.bean.HomeTimeLineNetBean;
 import com.liufeismart.weibo.bean.UserInfoBean;
 import com.liufeismart.weibo.login.util.LoginUtil;
 import com.liufeismart.weibo.network.base.NetworkAPI;
@@ -8,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
+import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -35,8 +37,8 @@ public class RetrofitUtil implements NetworkAPI {
 
     @Override
     public <T> void getAttention(final NetworkAPI.Callback<T> callback, final Class<T> TClass) {
-        String accesstoken = "0";
-        Call<T> call = weiboAPIRequest.getAttention(accesstoken);
+
+        Call<T> call = weiboAPIRequest.getAttention(LoginUtil.getInstance().mAccessToken.getToken());
         call.enqueue(new retrofit2.Callback<T>() {
             @Override
             public void onResponse(Call<T> call, Response<T> response) {
@@ -113,5 +115,23 @@ public class RetrofitUtil implements NetworkAPI {
         }
 
         callback.onSuccess(results);
+    }
+
+    @Override
+    public void homeTimeLine(final Callback<HomeTimeLineNetBean> callback) {
+        Call<HomeTimeLineNetBean> call = weiboAPIRequest.homeTimeLine(
+                LoginUtil.getInstance().mAccessToken.getToken());
+        call.enqueue(new retrofit2.Callback<HomeTimeLineNetBean>() {
+
+            @Override
+            public void onResponse(Call<HomeTimeLineNetBean> call, Response<HomeTimeLineNetBean> response) {
+                callback.onSuccess(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<HomeTimeLineNetBean> call, Throwable t) {
+                callback.onFailure(t.getMessage());
+            }
+        });
     }
 }

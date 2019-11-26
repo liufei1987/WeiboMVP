@@ -16,7 +16,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Service Name"
-        android:textColor="@color/tintcolor"
+        android:textColor="@color/textcolor"
         android:textSize="@dimen/textsize_service_name_fragment_me"
         android:layout_marginTop="@dimen/margintop_service_name_fragment_me"/>
 </LinearLayout>

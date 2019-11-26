@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="@dimen/padding_item_attention"
+    android:background="@color/bgcolor_attention_item">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <!-- 头像 -->
+        <ImageView
+            android:id="@+id/iv_portrait"
+            android:layout_width="@dimen/size_portrait_item_attention"
+            android:layout_height="@dimen/size_portrait_item_attention"
+            android:src="@drawable/icon_red_packet"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"/>
+        <!-- 用户名 -->
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="用户名"
+            android:textSize="@dimen/textsize_name_item_attention"
+            android:textColor="@color/tintcolor"
+            android:layout_toRightOf="@+id/iv_portrait"
+            android:layout_alignTop="@+id/iv_portrait"/>
+        <!-- createTime -->
+        <TextView
+            android:id="@+id/tv_createtime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5分钟前"
+            android:textSize="@dimen/textsize_createtime_item_attention"
+            android:textColor="@color/hintcolor"
+            android:layout_below="@+id/tv_name"
+            android:layout_alignLeft="@+id/tv_name"/>
+        <!-- 向下箭头 -->
+        <ImageView
+            android:id="@+id/iv_down"
+            android:layout_width="@dimen/size_down_item_attention"
+            android:layout_height="@dimen/size_down_item_attention"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="xxx"
+        android:textSize="@dimen/textsize_name_item_attention"
+        android:textColor="@color/textcolor"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_height"
+        android:background="@color/hintbgcolor"
+        android:layout_marginTop="@dimen/padding_item_attention"/>
+    <!-- 转发, 评论, 赞 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/padding_item_attention">
+        <!-- 转发 -->
+        <TextView
+            android:id="@+id/tv_transpond"
+            android:drawableLeft="@drawable/icon_weibo_transpond"
+            style="@style/weibo_info_attention_item"/>
+        <!-- 评论 -->
+        <TextView
+            android:id="@+id/tv_comment"
+            android:drawableLeft="@drawable/icon_weibo_comment"
+            style="@style/weibo_info_attention_item"/>
+        <!-- 转发 -->
+        <TextView
+            android:id="@+id/tv_like"
+            android:drawableLeft="@drawable/icon_weibo_like"
+            style="@style/weibo_info_attention_item"/>
+    </LinearLayout>
+</LinearLayout>
