@@ -18,6 +18,7 @@ import com.liufeismart.weibo.video.fragment.VideoFragment;
 import java.lang.ref.SoftReference;
 
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 public class MainActivity extends BaseFragmentActivity {
@@ -29,6 +30,7 @@ public class MainActivity extends BaseFragmentActivity {
     MeFragment meFragment = new MeFragment();
     private TabLayout tabLayout;
 
+    private Fragment oldFragment;
     static final int HOME = 0;
     static final int VIDEO = 1;
     static final int SEARCH = 2;
@@ -42,12 +44,25 @@ public class MainActivity extends BaseFragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         LoginUtil.getInstance().isLogin(activityRef, true);
+
     }
 
     @Override
     public void initView() {
         setContentView(R.layout.activity_main);
-        replaceFragment(homeFragment);
+        FragmentTransaction transaction = mFragmentManager.beginTransaction();
+        transaction.add(R.id.fragment, homeFragment);
+        transaction.add(R.id.fragment, videoFragment);
+        transaction.add(R.id.fragment, searchFragment);
+        transaction.add(R.id.fragment, messageFragment);
+        transaction.add(R.id.fragment, meFragment);
+        transaction.show(homeFragment);
+        transaction.hide(videoFragment);
+        transaction.hide(searchFragment);
+        transaction.hide(messageFragment);
+        transaction.hide(meFragment);
+//        transaction.add
+        transaction.commit();
         //
         tabLayout = this.findViewById(R.id.tablayout);
         for(int i=0; i<tabLayout.getTabCount(); i++) {
@@ -97,7 +112,7 @@ public class MainActivity extends BaseFragmentActivity {
 
     public void replaceFragment(BaseFragment fragment) {
         FragmentTransaction transaction = mFragmentManager.beginTransaction();
-        transaction.replace(R.id.fragment, fragment);
+        transaction.show(fragment);
 //        transaction.add
         transaction.commit();
     }

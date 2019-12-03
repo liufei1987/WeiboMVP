@@ -38,4 +38,7 @@
     <string name="sure">确定</string>
     <string name="add_group_no_content">分组名称不能为空</string>
     <string name="group_name_exists">此分组名已存在(20608)</string>
+    <string name="my_category">我的分类</string>
+    <string name="clickforcategory">点击进入频道</string>
+    <string name="clickforaddcategory">点击添加分类</string>
 </resources>

@@ -43,7 +43,7 @@ public class AttentionDialogFragment extends BaseFragment {
     private RecyclerView rv_default_group;
     private RecyclerView rv_my_group;
 
-    private final int ROWNUM = 4;
+    public static final int ROWNUM = 4;
 
     private Dialog addGroupDialog;
 
@@ -129,7 +129,7 @@ public class AttentionDialogFragment extends BaseFragment {
         rv_default_group.addItemDecoration(divider);
         rv_default_group.setAdapter(defaultGroupAdapter);
         //rv_my_group
-        RecyclerView.LayoutManager myGroupManager = new GridLayoutManager(view.getContext(), ROWNUM);
+        RecyclerView.LayoutManager myGroupManager = new GridLayoutManager(view.getContext(), 4);
         rv_my_group.setLayoutManager(myGroupManager);
         final RecyclerView.ItemDecoration myGroupDivider = new GridItemDecoration(
                 (int)(view.getContext().getResources().getDimension(R.dimen.itemdecoration_default_group)),

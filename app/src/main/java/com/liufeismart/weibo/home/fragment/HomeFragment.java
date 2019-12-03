@@ -36,7 +36,7 @@ public class HomeFragment extends BaseFragment implements AttentionDialogFragmen
 
     private Fragment attentionFragment = new AttentionFragment();
     private Fragment hotFragment = new HotFragment();
-    private Fragment attentionDialogFragment;
+    private AttentionDialogFragment attentionDialogFragment = new AttentionDialogFragment();
 
 //    TranslateAnimation animationToRight, animationToLeft;
     AnimatorSet animationToRight, animationToLeft;;
@@ -72,16 +72,7 @@ public class HomeFragment extends BaseFragment implements AttentionDialogFragmen
                     showAttention();
                 }
                 else {
-                    if(attentionDialogFragment == null) {
-                        attentionDialogFragment = new AttentionDialogFragment();
-                        attentionDialogFragment.setTargetFragment(HomeFragment.this, 0);
-                        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                        fragmentTransaction.add(R.id.rl_dialog, attentionDialogFragment);
-                        fragmentTransaction.commit();
-                        setAttentionDrawable(triangleUp);
-                        return;
-                    }
-                    else if(attentionDialogFragment.isHidden()) {
+                     if(attentionDialogFragment.isHidden()) {
                         FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
                         fragmentTransaction.show(attentionDialogFragment);
                         fragmentTransaction.commit();
@@ -117,7 +108,7 @@ public class HomeFragment extends BaseFragment implements AttentionDialogFragmen
         animation4.setDuration(200);
         ObjectAnimator animation5 = ObjectAnimator.ofInt(ll_line_tab,"right", rightMax, rightMin);
         animation5.setDuration(200);
-//        animationToLeft.play(animation3).with(animation4).before(animation5);
+        animationToLeft.play(animation3).with(animation4).before(animation5);
         tv_tab_hot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -132,6 +123,11 @@ public class HomeFragment extends BaseFragment implements AttentionDialogFragmen
         setAttentionDrawable(triangleDown);
         FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
         fragmentTransaction.add(R.id.rl_list, attentionFragment);
+        fragmentTransaction.add(R.id.rl_list,hotFragment);
+        fragmentTransaction.hide(hotFragment);
+        fragmentTransaction.add(R.id.rl_dialog, attentionDialogFragment);
+        attentionDialogFragment.setTargetFragment(this,0);
+        fragmentTransaction.hide(attentionDialogFragment);
         fragmentTransaction.commit();
 
 
@@ -143,6 +139,7 @@ public class HomeFragment extends BaseFragment implements AttentionDialogFragmen
     private void showHot() {
         tab = TAB_HOT;
         setAttentionDrawable(redDot);
+        animationToRight.start();
 //        animationToRight.start();
 //        ValueAnimator animator6 = ValueAnimator.ofInt(0, 220);
 //        animator6.setDuration(200);
@@ -168,9 +165,10 @@ public class HomeFragment extends BaseFragment implements AttentionDialogFragmen
         ll_line_tab.setRight(300);
         tv_tab_attention.setTextAppearance(this.getContext(), R.style.textstyle_unselect_tab_fragment_home);
         tv_tab_hot.setTextAppearance(this.getContext(), R.style.textstyle_select_tab_fragment_home);
-        if(attentionFragment.isHidden()) {
+        if(hotFragment.isHidden()) {
             FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-            fragmentTransaction.show(attentionFragment);
+            fragmentTransaction.show(hotFragment);
+            fragmentTransaction.hide(attentionFragment);
             fragmentTransaction.commit();
         }
     }
@@ -178,32 +176,13 @@ public class HomeFragment extends BaseFragment implements AttentionDialogFragmen
     private void showAttention() {
         tab = TAB_ATTENTION;
         animationToLeft.start();
-        ValueAnimator animator6 = ValueAnimator.ofInt(220, 0);
-        animator6.setDuration(200);
-        animator6.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                int value = (int)valueAnimator.getAnimatedValue();
-                ll_line_tab.setLeft(value);
-            }
-        });
-        animator6.start();
-        ValueAnimator animator7 = ValueAnimator.ofInt(300, 80);
-        animator7.setDuration(200);
-        animator7.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                int value = (int)valueAnimator.getAnimatedValue();
-                ll_line_tab.setRight(value);
-            }
-        });
-        animator7.start();
         setAttentionDrawable(triangleDown);
         tv_tab_hot.setTextAppearance(this.getContext(), R.style.textstyle_unselect_tab_fragment_home);
         tv_tab_attention.setTextAppearance(this.getContext(), R.style.textstyle_select_tab_fragment_home);
         if(attentionFragment.isHidden()) {
             FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
             fragmentTransaction.show(attentionFragment);
+            fragmentTransaction.hide(hotFragment);
             fragmentTransaction.commit();
         }
     }
