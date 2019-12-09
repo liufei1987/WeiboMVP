@@ -128,13 +128,14 @@ public class AttentionDialogFragment extends BaseFragment {
                 ROWNUM);
         rv_default_group.addItemDecoration(divider);
         rv_default_group.setAdapter(defaultGroupAdapter);
+
         //rv_my_group
-        RecyclerView.LayoutManager myGroupManager = new GridLayoutManager(view.getContext(), 4);
+        RecyclerView.LayoutManager myGroupManager = new GridLayoutManager(view.getContext(), ROWNUM);
         rv_my_group.setLayoutManager(myGroupManager);
         final RecyclerView.ItemDecoration myGroupDivider = new GridItemDecoration(
                 (int)(view.getContext().getResources().getDimension(R.dimen.itemdecoration_default_group)),
                 ROWNUM);
-        rv_my_group.addItemDecoration(myGroupDivider);
+//        rv_my_group.addItemDecoration(myGroupDivider);
         final List<DefaultGroupBean> my_groups = new ArrayList<>();
         my_groups.addAll(default_groups);
         my_groups.addAll(default_groups);
@@ -206,24 +207,18 @@ public class AttentionDialogFragment extends BaseFragment {
         tv_edit.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                int tag = (int)(tv_edit.getTag());
-                if(tag == STATUS_EDIT) {
+                defaultGroupAdapter.setEnable(!defaultGroupAdapter.isEnabled());
+                myGroupAdapter.setEnable(!defaultGroupAdapter.isEnabled());
+                if(!defaultGroupAdapter.isEnabled()) {
                     tv_edit.setText(finishStr);
-                    defaultGroupAdapter.setEnable(false);
-                    defaultGroupAdapter.notifyDataSetChanged();
-                    tv_edit.setTag(STATUS_FINISH);
-                    myGroupAdapter.setEnable(false);
-                    myGroupAdapter.notifyDataSetChanged();
                 }
-                else if(tag == STATUS_FINISH) {
+                else if(defaultGroupAdapter.isEnabled()) {
                     tv_edit.setText(editStr);
-                    defaultGroupAdapter.setEnable(true);
-                    defaultGroupAdapter.notifyDataSetChanged();
-                    tv_edit.setTag(STATUS_EDIT);
-                    myGroupAdapter.setEnable(true);
-                    myGroupAdapter.notifyDataSetChanged();
                 }
 
+
+                defaultGroupAdapter.notifyDataSetChanged();
+                myGroupAdapter.notifyDataSetChanged();
             }
         });
 

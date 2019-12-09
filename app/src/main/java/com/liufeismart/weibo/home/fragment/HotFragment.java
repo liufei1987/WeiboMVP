@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.google.android.material.tabs.TabLayout;
 import com.liufeismart.weibo.R;
@@ -15,6 +16,7 @@ import androidx.annotation.Nullable;
 
 public class HotFragment extends BaseFragment {
     private TabLayout tablayout_category;
+    private ImageView iv_tab_show;
 
     private TabBean[] tab_category = {
             new TabBean(0,"推荐"),
@@ -39,6 +41,7 @@ public class HotFragment extends BaseFragment {
     @Override
     protected void initView(View view) {
         tablayout_category = view.findViewById(R.id.tablayout_category);
+        iv_tab_show = view.findViewById(R.id.iv_tab_show);
         for(int i=0; i<tab_category.length; i++ ) {
             TabBean tabBean = tab_category[i];
             TabLayout.Tab tab = tablayout_category.newTab();
@@ -46,5 +49,16 @@ public class HotFragment extends BaseFragment {
             tab.setTag(tabBean.getId());
             tablayout_category.addTab(tab);
         }
+
+        iv_tab_show.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((HotFragmentCallback)HotFragment.this.getTargetFragment()).showHotDialog();
+            }
+        });
+    }
+
+    public interface HotFragmentCallback {
+        void showHotDialog();
     }
 }

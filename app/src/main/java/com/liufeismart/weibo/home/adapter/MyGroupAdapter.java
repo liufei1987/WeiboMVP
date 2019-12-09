@@ -36,6 +36,9 @@ public class MyGroupAdapter extends RecyclerView.Adapter {
         this.enable = enable;
     }
 
+    public boolean isEnabled() {
+        return enable;
+    }
 
     @NonNull
     @Override

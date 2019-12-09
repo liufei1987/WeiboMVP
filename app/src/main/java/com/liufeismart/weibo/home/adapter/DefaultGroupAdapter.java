@@ -28,6 +28,10 @@ public class DefaultGroupAdapter extends RecyclerView.Adapter<DefaultGroupAdapte
         this.enable = enable;
     }
 
+    public boolean isEnabled() {
+        return enable;
+    }
+
     @NonNull
     @Override
     public DefaultGroupViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

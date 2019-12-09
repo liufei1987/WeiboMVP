@@ -56,7 +56,10 @@ public class AttentionFragment extends BaseFragment implements HomeTimeLineView 
 
     @Override
     public void showHomeTineLine(HomeTimeLineNetBean result) {
-        weiboList.addAll(result.getStatuses());
-        adapter.notifyDataSetChanged();
+        if(result!=null) {
+            weiboList.addAll(result.getStatuses());
+            adapter.notifyDataSetChanged();
+        }
+
     }
 }

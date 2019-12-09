@@ -10,7 +10,7 @@
     android:layout_height="wrap_content"
     android:layout_alignParentTop="true"
     android:padding="@dimen/padding_dialog_attention_fragment_me"
-    android:background="#ffffff">
+    android:background="@color/white">
     <!-- 默认分组 -->
     <TextView
         android:id="@+id/tv_default_group"
