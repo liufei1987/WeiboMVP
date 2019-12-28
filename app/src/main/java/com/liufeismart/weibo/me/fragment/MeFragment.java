@@ -7,12 +7,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.liufeismart.image.ImageUtil;
+import com.liufeismart.network.bean.UserInfoBean;
 import com.liufeismart.weibo.R;
 import com.liufeismart.weibo.base.BaseFragment;
-import com.liufeismart.weibo.bean.UserInfoBean;
-import com.liufeismart.weibo.bean.test.ServiceBeanTest;
-import com.liufeismart.weibo.bean.test.UserBeanTest;
-import com.liufeismart.weibo.image.ImageUtil;
 import com.liufeismart.weibo.login.util.LoginUtil;
 import com.liufeismart.weibo.me.presenter.UserCountInfoPresenter;
 import com.liufeismart.weibo.me.presenter.UserCountInfoPresenterImpl;
@@ -24,7 +22,6 @@ import com.liufeismart.weibo.me.view.UserCountInfoView;
 import com.liufeismart.weibo.me.view.UserInfoView;
 import com.liufeismart.weibo.me.view.UserOftenVisitView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
@@ -103,7 +100,7 @@ public class MeFragment extends BaseFragment implements UserInfoView, UserCountI
 
     @Override
     public void showUserInfo(UserInfoBean userInfoBean) {
-        ImageUtil.getInstance().setPortrait(iv_portrait, userInfoBean.getProfile_image_url());
+        ImageUtil.getInstance().setPortrait(iv_portrait, userInfoBean.getProfile_image_url(), R.drawable.icon_protrait_default);
         tv_username.setText(userInfoBean.getName());
         String desc = userInfoBean.getDescription();
         if(desc.equals("")) {
@@ -182,7 +179,7 @@ public class MeFragment extends BaseFragment implements UserInfoView, UserCountI
         @Override
         public void onBindViewHolder(@NonNull UserViewHolder viewholder, int i) {
             UserInfoBean bean = users.get(i);
-            ImageUtil.getInstance().setPortrait(viewholder.iv_user_img, bean.getProfile_image_url());
+            ImageUtil.getInstance().setPortrait(viewholder.iv_user_img, bean.getProfile_image_url(), R.drawable.icon_protrait_default);
             viewholder.tv_user_name.setText(bean.getName());
         }
 

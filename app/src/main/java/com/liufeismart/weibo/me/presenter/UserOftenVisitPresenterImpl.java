@@ -1,11 +1,11 @@
 package com.liufeismart.weibo.me.presenter;
 
 
-import com.liufeismart.weibo.bean.UserInfoBean;
+import com.liufeismart.network.base.NetworkAPI;
+import com.liufeismart.network.bean.UserInfoBean;
 import com.liufeismart.weibo.me.model.UserOftenVisitModel;
 import com.liufeismart.weibo.me.model.UserOftenVisitModelImpl;
 import com.liufeismart.weibo.me.view.UserOftenVisitView;
-import com.liufeismart.weibo.network.base.NetworkAPI;
 
 import java.util.List;
 

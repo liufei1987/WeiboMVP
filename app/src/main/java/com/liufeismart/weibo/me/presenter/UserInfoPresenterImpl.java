@@ -1,10 +1,10 @@
 package com.liufeismart.weibo.me.presenter;
 
-import com.liufeismart.weibo.bean.UserInfoBean;
+import com.liufeismart.network.base.NetworkAPI;
+import com.liufeismart.network.bean.UserInfoBean;
 import com.liufeismart.weibo.me.model.UserInfoModel;
 import com.liufeismart.weibo.me.model.UserInfoModelImpl;
 import com.liufeismart.weibo.me.view.UserInfoView;
-import com.liufeismart.weibo.network.base.NetworkAPI;
 
 public class UserInfoPresenterImpl implements UserInfoPresenter {
 

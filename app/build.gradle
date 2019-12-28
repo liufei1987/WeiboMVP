@@ -5,7 +5,7 @@ android {
 
     defaultConfig {
         applicationId "com.liufeismart.weibo"
-        minSdkVersion 15
+        minSdkVersion 19
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -80,28 +80,13 @@ dependencies {
     implementation(name:'core-4.1.0-openDefaultRelease', ext:'aar')
 //    implementation(name:'core-4.4.1-openDefaultRelease', ext:'aar')
 //    implementation 'com.sina.weibo.sdk:core:4.4.1:openDefaultRelease@aar'
-    //retrofit start
-    implementation 'com.squareup.retrofit2:retrofit:2.0.2'
-    implementation 'com.squareup.retrofit2:converter-gson:2.0.2'
-    implementation 'com.squareup.retrofit2:adapter-rxjava:2.0.2'
-    //retrofit end
 
-    //Recyclerview
-//    implementation 'com.android.support:recyclerview-v7:23.4.0'
-
-    //Volley
-    implementation 'com.mcxiaoke.volley:library:1.0.19'
 
     //TabLayout
 //    implementation 'com.android.support:design:28.0.0'
     implementation 'com.google.android.material:material:1.1.0-alpha09'
+    implementation project(path: ':base')
 
-    //Glide
-    implementation 'com.github.bumptech.glide:glide:4.10.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
-
-    //RecyclerView
-//    implementation 'com.android.support:recyclerview-v7:27.1.1'
 
     //zxing
 //    implementation 'com.google.zxing:android-core:3.4.0'

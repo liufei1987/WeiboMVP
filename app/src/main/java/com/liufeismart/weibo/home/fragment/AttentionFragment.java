@@ -5,10 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.liufeismart.network.bean.HomeTimeLineNetBean;
+import com.liufeismart.network.bean.WeiboBean;
 import com.liufeismart.weibo.R;
 import com.liufeismart.weibo.base.BaseFragment;
-import com.liufeismart.weibo.bean.HomeTimeLineNetBean;
-import com.liufeismart.weibo.bean.WeiboBean;
 import com.liufeismart.weibo.home.adapter.AttentionAdapter;
 import com.liufeismart.weibo.home.presenter.HomeTimeLinePresenter;
 import com.liufeismart.weibo.home.presenter.HomeTimeLinePresenterImpl;
@@ -52,6 +52,12 @@ public class AttentionFragment extends BaseFragment implements HomeTimeLineView 
         rv_attention.addItemDecoration(divider);
         mHomeTimeLinePresenter = new HomeTimeLinePresenterImpl(this);
         mHomeTimeLinePresenter.loadHomeTimeLine();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        ((AttentionDialogFragment.AttentDilaogCallback)(AttentionFragment.this.getTargetFragment())).hideAttentionDialog();
     }
 
     @Override

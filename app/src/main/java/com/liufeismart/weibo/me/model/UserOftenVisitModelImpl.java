@@ -1,8 +1,8 @@
 package com.liufeismart.weibo.me.model;
 
-import com.liufeismart.weibo.bean.UserInfoBean;
-import com.liufeismart.weibo.network.NetworkUtil;
-import com.liufeismart.weibo.network.base.NetworkAPI;
+import com.liufeismart.network.NetworkUtil;
+import com.liufeismart.network.base.NetworkAPI;
+import com.liufeismart.network.bean.UserInfoBean;
 
 import java.util.List;
 

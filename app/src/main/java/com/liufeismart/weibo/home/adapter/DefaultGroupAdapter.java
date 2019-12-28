@@ -28,6 +28,10 @@ public class DefaultGroupAdapter extends RecyclerView.Adapter<DefaultGroupAdapte
         this.enable = enable;
     }
 
+    /**
+     * 是否可以点击，
+     * @return true 可点击，false 不可点击
+     */
     public boolean isEnabled() {
         return enable;
     }

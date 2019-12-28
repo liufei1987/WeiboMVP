@@ -2,11 +2,11 @@ package com.liufeismart.weibo.home.presenter;
 
 import android.util.Log;
 
-import com.liufeismart.weibo.bean.HomeTimeLineNetBean;
+import com.liufeismart.network.base.NetworkAPI;
+import com.liufeismart.network.bean.HomeTimeLineNetBean;
 import com.liufeismart.weibo.home.model.HomeTimeLineModel;
 import com.liufeismart.weibo.home.model.HomeTimeLineModelImpl;
 import com.liufeismart.weibo.home.view.HomeTimeLineView;
-import com.liufeismart.weibo.network.base.NetworkAPI;
 
 public class HomeTimeLinePresenterImpl implements HomeTimeLinePresenter {
 

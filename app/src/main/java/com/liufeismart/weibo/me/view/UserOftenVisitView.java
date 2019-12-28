@@ -1,6 +1,6 @@
 package com.liufeismart.weibo.me.view;
 
-import com.liufeismart.weibo.bean.UserInfoBean;
+import com.liufeismart.network.bean.UserInfoBean;
 
 import java.util.List;
 

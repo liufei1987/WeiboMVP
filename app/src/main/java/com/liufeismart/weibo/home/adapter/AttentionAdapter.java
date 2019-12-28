@@ -8,9 +8,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.liufeismart.image.ImageUtil;
+import com.liufeismart.network.bean.WeiboBean;
 import com.liufeismart.weibo.R;
-import com.liufeismart.weibo.bean.WeiboBean;
-import com.liufeismart.weibo.image.ImageUtil;
 import com.liufeismart.weibo.utils.StringUtil;
 
 import java.util.List;
@@ -37,7 +37,7 @@ public class AttentionAdapter extends RecyclerView.Adapter<AttentionAdapter.Weib
     public void onBindViewHolder(@NonNull WeiboViewHolder holder, int position) {
         Resources res =  holder.tv_createtime.getResources();
         WeiboBean bean = weiboList.get(position);
-        ImageUtil.getInstance().setPortrait(holder.iv_portrait, bean.getUser().getProfile_image_url());
+        ImageUtil.getInstance().setPortrait(holder.iv_portrait, bean.getUser().getProfile_image_url(), R.drawable.icon_protrait_default);
         holder.tv_name.setText(bean.getUser().getName());
         String createTime =StringUtil.getCreateTime(holder.tv_createtime.getContext(),bean.getCreated_at()) + "  来自" + StringUtil.getSource(holder.tv_createtime.getContext(), bean.getSource());
         holder.tv_createtime.setText(createTime);

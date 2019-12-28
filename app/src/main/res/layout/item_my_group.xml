@@ -7,7 +7,6 @@
         android:id="@+id/tv_my_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="全部关注"
         style="@style/hinttext_dialog_attention_fragment_me"
         android:textColor="@color/textcolor"
         android:background="@color/hintbgcolor"

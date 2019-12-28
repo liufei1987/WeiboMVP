@@ -30,7 +30,7 @@ public class MainActivity extends BaseFragmentActivity {
     MeFragment meFragment = new MeFragment();
     private TabLayout tabLayout;
 
-    private Fragment oldFragment;
+    private Fragment currentFragment;
     static final int HOME = 0;
     static final int VIDEO = 1;
     static final int SEARCH = 2;
@@ -56,7 +56,8 @@ public class MainActivity extends BaseFragmentActivity {
         transaction.add(R.id.fragment, searchFragment);
         transaction.add(R.id.fragment, messageFragment);
         transaction.add(R.id.fragment, meFragment);
-        transaction.show(homeFragment);
+        currentFragment = homeFragment;
+        transaction.show(currentFragment);
         transaction.hide(videoFragment);
         transaction.hide(searchFragment);
         transaction.hide(messageFragment);
@@ -113,7 +114,10 @@ public class MainActivity extends BaseFragmentActivity {
     public void replaceFragment(BaseFragment fragment) {
         FragmentTransaction transaction = mFragmentManager.beginTransaction();
         transaction.show(fragment);
-//        transaction.add
+        if(currentFragment!=null) {
+            transaction.hide(currentFragment);
+        }
+        currentFragment = fragment;
         transaction.commit();
     }
 

@@ -17,15 +17,15 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class MyCategoryAdapter  extends RecyclerView.Adapter {
+public class MyCategoryAdapter extends RecyclerView.Adapter<MyCategoryAdapter.CategoryViewHolder> {
 
     private List<DefaultGroupBean> data;
-    private MyCategoryAdapter.MyCategoryAdapterCallback callback;
+    private MyCategoryAdapterCallback callback;
 
     private boolean enable = true;
 
 
-    public MyCategoryAdapter(List<DefaultGroupBean> data, MyCategoryAdapter.MyCategoryAdapterCallback callback) {
+    public MyCategoryAdapter(List<DefaultGroupBean> data, MyCategoryAdapterCallback callback) {
         this.data = data;
         this.callback = callback;
     }
@@ -40,76 +40,44 @@ public class MyCategoryAdapter  extends RecyclerView.Adapter {
 
     @NonNull
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_my_group, parent, false);
-            return new MyCategoryAdapter.CategoryViewHolder(view);
-
+    public CategoryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_my_group, parent, false);
+        return new CategoryViewHolder(view);
     }
 
+
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int position) {
+    public void onBindViewHolder(@NonNull CategoryViewHolder viewHolder, int position) {
         final int index = position;
         DefaultGroupBean bean = data.get(position);
-        if(viewHolder instanceof MyCategoryAdapter.CategoryViewHolder) {
-            MyCategoryAdapter.CategoryViewHolder holder = (MyCategoryAdapter.CategoryViewHolder)viewHolder;
-            holder.tv_my_name.setText(bean.getName());
-            if(enable) {
-                holder.iv_delete.setVisibility(View.GONE);
-                holder.tv_my_name.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        if(callback!=null) {
-                            callback.clickOn();
-                        }
+        CategoryViewHolder holder = (CategoryViewHolder) viewHolder;
+        holder.tv_my_name.setText(bean.getName());
+        if (enable) {
+            holder.iv_delete.setVisibility(View.GONE);
+            holder.tv_my_name.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (callback != null) {
+                        callback.clickOn();
+                    }
+
+                }
+            });
+        } else {
+            holder.iv_delete.setVisibility(View.VISIBLE);
+            holder.tv_my_name.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(callback!=null) {
+                        final int size[] = {view.getWidth(), view.getHeight()};
+                        callback.moveCategory(MyCategoryAdapter.this, index);
 
                     }
-                });
-            }
-            else {
-                holder.iv_delete.setVisibility(View.VISIBLE);
-                holder.tv_my_name.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        if(callback!=null) {
-                            final int size[] = {view.getWidth(), view.getHeight()};
-                            callback.moveCategory(MyCategoryAdapter.this, index);
+                }
+            });
+        }
 
-                        }
-                    }
-                });
-            }
-        }
-        else {
-//            MyGroupAdapter.AddGroupViewHolder holder = (MyGroupAdapter.AddGroupViewHolder)viewHolder;
-//            holder.tv_my_name.setText(bean.getName());
-//            if(enable) {
-//                holder.iv_delete.setVisibility(View.GONE);
-//                holder.iv_delete.setOnClickListener(null);
-//                holder.tv_my_name.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View view) {
-//
-//                    }
-//                });
-//            }
-//            else {
-//                if(bean.canDelete()) {
-////                    holder.iv_delete.setVisibility(View.VISIBLE);
-////                    holder.iv_delete.setOnClickListener(new View.OnClickListener() {
-////                        @Override
-////                        public void onClick(View view) {
-////                            callback.deleteCategory(index);
-////                        }
-////                    });
-//                }
-//                else {
-//                    holder.iv_delete.setVisibility(View.GONE);
-//                    holder.iv_delete.setOnClickListener(null);
-//                }
-//                holder.tv_my_name.setOnClickListener(null);
-//            }
-        }
+
     }
 
     @Override
@@ -117,18 +85,9 @@ public class MyCategoryAdapter  extends RecyclerView.Adapter {
         return data.size();
     }
 
-    public class MyGroupViewHolder extends RecyclerView.ViewHolder {
-        TextView tv_my_name;
-        ImageView iv_delete;
-        public MyGroupViewHolder(@NonNull View view) {
-            super(view);
-            tv_my_name = view.findViewById(R.id.tv_my_name);
-            iv_delete = view.findViewById(R.id.iv_delete);
 
-        }
-    }
 
-    public class CategoryViewHolder extends RecyclerView.ViewHolder {
+    class CategoryViewHolder extends RecyclerView.ViewHolder {
         TextView tv_my_name;
         ImageView iv_delete;
 

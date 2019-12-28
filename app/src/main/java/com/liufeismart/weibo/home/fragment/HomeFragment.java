@@ -1,16 +1,12 @@
 package com.liufeismart.weibo.home.fragment;
 
-import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
-import android.animation.ValueAnimator;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.TranslateAnimation;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -22,7 +18,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-public class HomeFragment extends BaseFragment implements AttentionDialogFragment.AttentDilaogCallback, HotFragment.HotFragmentCallback, HotDialogFragment.HotDialogFragmentCallback {
+public class HomeFragment extends BaseFragment implements AttentionDialogFragment.AttentDilaogCallback, HotFragment.HotFragmentCallback, CategoryDialogFragment.HotDialogFragmentCallback {
 
 
     private View rl_content;
@@ -37,7 +33,7 @@ public class HomeFragment extends BaseFragment implements AttentionDialogFragmen
     private Fragment attentionFragment = new AttentionFragment();
     private Fragment hotFragment = new HotFragment();
     private AttentionDialogFragment attentionDialogFragment = new AttentionDialogFragment();
-    private HotDialogFragment hotDialogFragment = new HotDialogFragment();
+    private CategoryDialogFragment hotDialogFragment = new CategoryDialogFragment();
 
 //    TranslateAnimation animationToRight, animationToLeft;
     AnimatorSet animationToRight, animationToLeft;;
@@ -74,10 +70,7 @@ public class HomeFragment extends BaseFragment implements AttentionDialogFragmen
                 }
                 else {
                      if(attentionDialogFragment.isHidden()) {
-                        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                        fragmentTransaction.show(attentionDialogFragment);
-                        fragmentTransaction.commit();
-                        setAttentionDrawable(triangleUp);
+                        showAttentionDialog();
                     }
                     else {
                         hideAttentionDialog();
@@ -144,6 +137,7 @@ public class HomeFragment extends BaseFragment implements AttentionDialogFragmen
         hotFragment.setTargetFragment(this, 0);
         fragmentTransaction.hide(hotFragment);
         fragmentTransaction.add(R.id.rl_dialog, attentionDialogFragment);
+        attentionFragment.setTargetFragment(this,0);
         attentionDialogFragment.setTargetFragment(this,0);
         fragmentTransaction.hide(attentionDialogFragment);
         fragmentTransaction.add(R.id.rl_dialog, hotDialogFragment);
@@ -155,6 +149,12 @@ public class HomeFragment extends BaseFragment implements AttentionDialogFragmen
 
         tv_tab_hot.setTextAppearance(this.getContext(), R.style.textstyle_unselect_tab_fragment_home);
         tv_tab_attention.setTextAppearance(this.getContext(), R.style.textstyle_select_tab_fragment_home);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        hideAttentionDialog();
     }
 
     private void showHot() {
@@ -192,6 +192,7 @@ public class HomeFragment extends BaseFragment implements AttentionDialogFragmen
             fragmentTransaction.hide(attentionFragment);
             fragmentTransaction.commit();
         }
+        hideAttentionDialog();
     }
 
     private void showAttention() {
@@ -206,6 +207,14 @@ public class HomeFragment extends BaseFragment implements AttentionDialogFragmen
             fragmentTransaction.hide(hotFragment);
             fragmentTransaction.commit();
         }
+        hideHotDialog();
+    }
+
+    public void showAttentionDialog() {
+        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+        fragmentTransaction.show(attentionDialogFragment);
+        fragmentTransaction.commit();
+        setAttentionDrawable(triangleUp);
     }
 
     @Override
@@ -214,6 +223,13 @@ public class HomeFragment extends BaseFragment implements AttentionDialogFragmen
         fragmentTransaction.hide(attentionDialogFragment);
         fragmentTransaction.commit();
         setAttentionDrawable(triangleDown);
+    }
+
+    @Override
+    public void showHotDialog() {
+        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+        fragmentTransaction.show(hotDialogFragment);
+        fragmentTransaction.commit();
     }
 
     public void hideHotDialog() {
@@ -226,10 +242,5 @@ public class HomeFragment extends BaseFragment implements AttentionDialogFragmen
         tv_tab_attention.setCompoundDrawables(null, null, drawable, null);
     }
 
-    @Override
-    public void showHotDialog() {
-        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-        fragmentTransaction.show(hotDialogFragment);
-        fragmentTransaction.commit();
-    }
+
 }

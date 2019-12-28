@@ -52,8 +52,11 @@ public class AttentionDialogFragment extends BaseFragment {
 
     private TextView tv_edit;
 
+    //状态相关
     private final int STATUS_EDIT = 0;
     private final int STATUS_FINISH = 1;
+    private int status = STATUS_EDIT;
+
     String finishStr;
     String editStr;
 
@@ -203,19 +206,14 @@ public class AttentionDialogFragment extends BaseFragment {
         rv_my_group.setAdapter(myGroupAdapter);
 
         //tv_edit
-        tv_edit.setTag(STATUS_EDIT);
         tv_edit.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                defaultGroupAdapter.setEnable(!defaultGroupAdapter.isEnabled());
-                myGroupAdapter.setEnable(!defaultGroupAdapter.isEnabled());
-                if(!defaultGroupAdapter.isEnabled()) {
-                    tv_edit.setText(finishStr);
-                }
-                else if(defaultGroupAdapter.isEnabled()) {
-                    tv_edit.setText(editStr);
-                }
-
+                status = status == STATUS_EDIT ? STATUS_FINISH : STATUS_EDIT;
+                boolean enable = status == STATUS_EDIT ? true: false;
+                myGroupAdapter.setEnable(enable);
+                defaultGroupAdapter.setEnable(enable);
+                tv_edit.setText(enable ? editStr: finishStr);
 
                 defaultGroupAdapter.notifyDataSetChanged();
                 myGroupAdapter.notifyDataSetChanged();

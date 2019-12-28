@@ -1,10 +1,10 @@
 package com.liufeismart.weibo.me.presenter;
 
-import com.liufeismart.weibo.bean.UserInfoBean;
+import com.liufeismart.network.base.NetworkAPI;
+import com.liufeismart.network.bean.UserInfoBean;
 import com.liufeismart.weibo.me.model.UserCountInfoModel;
 import com.liufeismart.weibo.me.model.UserCountInfoModelImpl;
 import com.liufeismart.weibo.me.view.UserCountInfoView;
-import com.liufeismart.weibo.network.base.NetworkAPI;
 
 import java.util.List;
 
